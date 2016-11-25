@@ -54,7 +54,7 @@ Template.plotForm.events({
             }
         ];
 
-        Plotly.newPlot('plot',data,layout);
+        Plotly.newPlot('plot',data,layout,{modeBarButtonsToRemove: ['toImage','sendDataToCloud'], displaylogo:false});
 
     },
 });
