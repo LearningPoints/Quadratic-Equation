@@ -8,7 +8,7 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +7 client/main.jade
-badd +1 client/main.js
+badd +50 client/main.js
 badd +1 client/components/plotForm.tpl.jade
 argglobal
 silent! argdel *
@@ -74,12 +74,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 50 - ((20 * winheight(0) + 15) / 30)
+let s:l = 57 - ((26 * winheight(0) + 15) / 30)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-50
-normal! 021|
+57
+normal! 094|
 tabnext 3
 set stal=1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
