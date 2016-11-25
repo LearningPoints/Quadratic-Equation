@@ -3,12 +3,12 @@ import { Template } from 'meteor/templating';
 import './main.jade';
 import './components/plotForm.tpl.jade';
 
-Template.body.onCreated(function bodyOnCreated() {
+Template.plotForm.onCreated(function plotFormOnCreated() {
 
 });
 
 Template.plotForm.helpers({
-
+    
 });
 
 Template.plotForm.events({
@@ -49,7 +49,8 @@ Template.plotForm.events({
             {
                 x: x,
                 y: y,
-                type: 'scatter'
+                type: 'scatter',
+                mode: 'lines+markers'
             }
         ];
 
