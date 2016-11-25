@@ -1,22 +1,59 @@
 import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
 
-import './main.html';
+import './main.jade';
+import './components/plotForm.tpl.jade';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
+Template.body.onCreated(function bodyOnCreated() {
+
 });
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
+Template.plotForm.helpers({
+
 });
 
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
+Template.plotForm.events({
+    'submit .equation'(event) {
+
+        event.preventDefault();
+
+        const target = event.target;
+        const a = target.varA.value;
+        const b = target.varB.value;
+        const c = target.varC.value;
+        let delta = 0;
+        const x = [];
+        const y = [];
+
+        if (a != 0) {
+            delta = +Math.pow(b,2) - 4*a*c;
+        }
+
+        let aux = -10;
+        for (let i = 1; i<=21; i++) {
+            x[i] = aux;
+            y[i] = a*Math.pow(x[i],2)+((1*b)*x[i])+(1*c);
+            aux += 1;
+        }
+
+        const layout = {
+            yaxis: {
+                title: "X",
+            },
+            xaxis: {
+                title: "Y",
+                range: [-10,10]
+            },
+        };
+
+        const data = [
+            {
+                x: x,
+                y: y,
+                type: 'scatter'
+            }
+        ];
+
+        Plotly.newPlot('plot',data,layout);
+
+    },
 });
