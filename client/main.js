@@ -4,7 +4,6 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './main.jade';
 import './components/plotForm.tpl.jade';
 
-
 Template.plotForm.onCreated(function plotFormOnCreated() {
     msg = new ReactiveVar();
     gameOptions = new ReactiveVar();
