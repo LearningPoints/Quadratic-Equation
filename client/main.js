@@ -13,25 +13,31 @@ Template.plotForm.onCreated(function plotFormOnCreated() {
 Template.plotForm.helpers({
     outputMsg() {
         let text = "";
+        const sysMsg = [
+            "",
+            "O valor de A deve ser diferente de 0, caso contrário será uma equação linear.",
+            "Errado! Valor de A menor que 0, concavidade voltada para baixo.",
+            "Errado! Valor de A maior que 0, concavidade voltada para cima",
+            "Errado! Teste editar os valores de A e B.",
+            "Correto! Valor de A maior que 0, concavidade voltada para cima.",
+            "Correto! Valor de A menor que 0, concavidade voltada para baixo",
+            "Correto! Valor de A maior que 0 e B menor que 0. Concavidade voltada para cima e à direita de Y.",
+            "Correto! Valor de A maior que 0 e B maior que 0. Concavidade voltada para cima e à esquerda de Y.",
+            "Correto! Valor de A menor que 0 e B maior que 0. Concavidade voltada para baixo e à direita de Y.",
+            "Correto! Valor de A menor que 0 e B menor que 0. Concavidade voltada para baixo e à esquerda de Y."
+        ];
         const gameMsg = [
             "Desafio! Crie uma concavidade voltada para cima.",
             "Desafio! Crie uma concavidade voltada para baixo.",
-            "Desafio! Crie uma concavidade voltada para cima no 1º Quadrante.",
-            "Desafio! Crie uma concavidade voltada para baixo no 1º Quadrante.",
-            "Desafio! Crie uma concavidade voltada para cima no 2º Quadrante.",
-            "Desafio! Crie uma concavidade voltada para baixo no 2º Quadrante.",
-            "Desafio! Crie uma concavidade voltada para cima no 3º Quadrante.",
-            "Desafio! Crie uma concavidade voltada para baixo no 3º Quadrante.",
-            "Desafio! Crie uma concavidade voltada para cima no 4º Quadrante.",
-            "Desafio! Crie uma concavidade voltada para baixo no 4º Quadrante."
+            "Desafio! Crie uma concavidade voltada para cima à direita de Y.",
+            "Desafio! Crie uma concavidade voltada para cima à esquerda de Y.",
+            "Desafio! Crie uma concavidade voltada para baixo à direita de Y.",
+            "Desafio! Crie uma concavidade voltada para baixo à esquerda de Y.",
         ];
 
         //System messages
-        if(msg.get() == 0) {
-            text = "";
-        }
-        if(msg.get() == 1) {
-            text = "O valor de A deve ser diferente de 0.";
+        if(msg.get() != 0) {
+            text = sysMsg[msg.get()];
         }
 
         //Game Messages
@@ -44,7 +50,9 @@ Template.plotForm.helpers({
 
 Template.plotForm.events({
     'click .gameMode'(event) {
-        gameOptions.set(Math.floor(Math.random() * 10));
+        event.preventDefault();
+        msg.set(0);
+        gameOptions.set(Math.floor(Math.random() * 6));
     },
     'submit .equation'(event) {
 
@@ -86,6 +94,49 @@ Template.plotForm.events({
                 }
             ];
 
+            if (gameOptions.get() == 0) {
+                gameOptions.set(10);
+                if (a > 0)
+                    msg.set(5);
+                else
+                    msg.set(2);
+            }
+            if (gameOptions.get() == 1) {
+                gameOptions.set(10);
+                if (a < 0)
+                    msg.set(6);
+                else
+                    msg.set(3);
+            }
+            if (gameOptions.get() == 2) {
+                gameOptions.set(10);
+                if (a > 0 && b < 0)
+                    msg.set(7);
+                else
+                    msg.set(4);
+            }
+            if (gameOptions.get() == 3) {
+                gameOptions.set(10);
+                if (a > 0 && b > 0)
+                    msg.set(8);
+                else
+                    msg.set(4);
+            }
+            if (gameOptions.get() == 4) {
+                gameOptions.set(10);
+                if (a < 0 && b > 0)
+                    msg.set(9);
+                else
+                    msg.set(4);
+            }
+            if (gameOptions.get() == 5) {
+                gameOptions.set(10);
+                if (a < 0 && b < 0)
+                    msg.set(10);
+                else
+                    msg.set(4);
+            }
+            
             Plotly.newPlot('plot',data,layout,{modeBarButtonsToRemove: ['toImage','sendDataToCloud'], displaylogo:false});
         }else{
             msg.set(1);
