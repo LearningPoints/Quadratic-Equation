@@ -8,7 +8,7 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +7 client/main.jade
-badd +50 client/main.js
+badd +57 client/main.js
 badd +1 client/components/plotForm.tpl.jade
 argglobal
 silent! argdel *
@@ -30,12 +30,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 6 - ((4 * winheight(0) + 15) / 30)
+let s:l = 10 - ((9 * winheight(0) + 15) / 30)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-6
-normal! 08|
+10
+normal! 020|
 tabedit client/components/plotForm.tpl.jade
 set splitbelow splitright
 set nosplitbelow
@@ -57,7 +57,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
-normal! 0
+normal! 04|
 tabedit client/main.js
 set splitbelow splitright
 set nosplitbelow
@@ -74,13 +74,13 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 57 - ((26 * winheight(0) + 15) / 30)
+let s:l = 125 - ((0 * winheight(0) + 15) / 30)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-57
-normal! 094|
-tabnext 3
+125
+normal! 036|
+tabnext 1
 set stal=1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

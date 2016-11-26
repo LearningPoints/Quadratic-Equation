@@ -1,8 +1,23 @@
-form.equation
-    input(type="text" name="varA" placeholder="Entre com o valor de A")
-    input(type="text" name="varB" placeholder="Entre com o valor de B")
-    input(type="text" name="varC" placeholder="Entre com o valor de C")
-    div
-        button(type="submit") Submit
+.row
+    form.equation.col.s12
+        .row
+            .input-field.col.s4
+                input(type="text" id="varA" name="varA" placeholder="Entre com o valor de A")
+                label(for="varA") ax²
+            .input-field.col.s4
+                input(type="text" id="varB" name="varB" placeholder="Entre com o valor de B")
+                label(for="varB") bx
+            .input-field.col.s4
+                input(type="text" id="varC" name="varC" placeholder="Entre com o valor de C")
+                label(for="varC") c
+
+        blockquote
+            p.flow-text
+                | #{outputMsg}
+
+        .row
+            button.waves-effect.waves-light.btn(type="submit") Plot
+            button.waves-effect.purple.waves-light.btn.gameMode Vamos Jogar?
 
 .plotGraph(id="plot")
+

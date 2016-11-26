@@ -1,12 +1,13 @@
 head
     title Quadratic Equation
     script(type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js")
-
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js")
 body
-    header
-        h1 Welcome to Quadratic Equation
-        span From Learning Points
-
-    +plotForm
+    
+    .container
+        h1 Equação Quadrática
+        p.flow-text por LearningPoints™
+        +plotForm
 
 
