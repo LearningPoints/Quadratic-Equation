@@ -1,8 +1,8 @@
 import { Template } from 'meteor/templating';
 
-import './components/footer.tpl.jade';
+import './components/help.tpl.jade';
 
-Template.footer.events({
+Template.help.events({
     'click #help'(event) {
         $('#helpModal').openModal(); 
     } 

@@ -2,14 +2,14 @@
     form.equation.col.s12
         .row
             .input-field.col.s4
-                input(type="text" id="varA" name="varA" placeholder="Entre com o valor de A")
-                label(for="varA") ax²
+                input(type="tel" id="varA" name="varA" placeholder="Valor A")
+                label.active(for="varA") ax²
             .input-field.col.s4
-                input(type="text" id="varB" name="varB" placeholder="Entre com o valor de B")
-                label(for="varB") bx
+                input(type="tel" id="varB" name="varB" placeholder="Valor B")
+                label.active(for="varB") bx
             .input-field.col.s4
-                input(type="text" id="varC" name="varC" placeholder="Entre com o valor de C")
-                label(for="varC") c
+                input(type="tel" id="varC" name="varC" placeholder="Valor C")
+                label.active(for="varC") c
 
         blockquote
             p.flow-text
@@ -17,7 +17,11 @@
 
         .row
             button.waves-effect.waves-light.btn(type="submit") Plot
-            button.waves-effect.purple.waves-light.btn.gameMode Vamos Jogar?
+            button.waves-effect.purple.waves-light.btn.gameMode(class="{{#if gameRunning}}disabled{{/if}}") 
+                if gameRunning
+                    | &#8678;
+                else
+                    | Vamos Jogar?
 
 .plotGraph(id="plot")
 

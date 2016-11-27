@@ -1,1 +1,12 @@
-/* CSS declarations go here */
+@font-face {
+    font-family: Sketches;
+    src: url("fonts/KGTrueColors.ttf");
+}
+
+.sketches {
+    font-family: Sketches;
+}
+
+.helpBtn {
+    margin-top: 37px;
+}
