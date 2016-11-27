@@ -4,13 +4,18 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './main.jade';
 import './components/plotForm.tpl.jade';
 
-
 Template.plotForm.onCreated(function plotFormOnCreated() {
     msg = new ReactiveVar();
     gameOptions = new ReactiveVar();
+    gameOptions.set(10);
 });
 
 Template.plotForm.helpers({
+    gameRunning() {
+        if (gameOptions.get() != 10) {
+            return true
+        }
+    },
     outputMsg() {
         let text = "";
         const sysMsg = [
@@ -68,20 +73,21 @@ Template.plotForm.events({
         const y = [];
 
         if (a != 0) {
-            let aux = -10;
-            for (let i = 1; i<=21; i++) {
+            let aux = -20;
+            for (let i = 1; i<=411; i++) {
                 x[i] = aux;
                 y[i] = a*Math.pow(x[i],2)+((1*b)*x[i])+(1*c);
-                aux += 1;
+                aux += 0.1;
             }
 
             const layout = {
                 yaxis: {
-                    title: "X",
+                    title: "Eixo Y",
+                    autorange: true
                 },
                 xaxis: {
-                    title: "Y",
-                    range: [-10,10]
+                    title: "Eixo X",
+                    range: [-20,20]
                 },
             };
 
@@ -90,7 +96,7 @@ Template.plotForm.events({
                     x: x,
                     y: y,
                     type: 'scatter',
-                    mode: 'lines+markers'
+                    mode: 'lines'
                 }
             ];
 

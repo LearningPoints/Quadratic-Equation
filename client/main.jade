@@ -1,13 +1,15 @@
 head
     title Quadratic Equation
     script(type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js")
-    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js")
+    link(href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
 body
     
     .container
-        h1 Equação Quadrática
-        p.flow-text por LearningPoints™
+        .row
+            .col.s9
+                h1.sketches f(x)²
+            .col.s1
+                +help
+        p.flow-text.sketches por LearningPoints™
         +plotForm
-
-
