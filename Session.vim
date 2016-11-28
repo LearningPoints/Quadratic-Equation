@@ -9,14 +9,14 @@ endif
 set shortmess=aoO
 badd +11 client/main.jade
 badd +4 client/main.js
-badd +7 client/components/plotForm.tpl.jade
+badd +22 client/components/plotForm.tpl.jade
 badd +6 ./client/components/footer.tpl.jade
 badd +10 client/footer.js
-badd +6 client/main.css
+badd +11 client/main.css
 badd +9 imports/plotly-latest.min.js
-badd +0 /client/main.css
-badd +0 client/help.js
-badd +0 client/components/help.tpl.jade
+badd +1 /client/main.css
+badd +5 client/help.js
+badd +1 client/components/help.tpl.jade
 argglobal
 silent! argdel *
 argadd client/main.jade
@@ -37,7 +37,7 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 12 - ((11 * winheight(0) + 19) / 39)
+let s:l = 12 - ((9 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -59,7 +59,7 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 11 - ((10 * winheight(0) + 19) / 39)
+let s:l = 11 - ((8 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -81,7 +81,7 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 22 - ((21 * winheight(0) + 19) / 39)
+let s:l = 22 - ((17 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -103,7 +103,7 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 4 - ((3 * winheight(0) + 19) / 39)
+let s:l = 4 - ((2 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -125,12 +125,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 16) / 32)
+let s:l = 28 - ((19 * winheight(0) + 19) / 39)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 037|
+28
+normal! 018|
 tabedit client/help.js
 set splitbelow splitright
 set nosplitbelow
@@ -147,7 +147,7 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 5 - ((4 * winheight(0) + 19) / 39)
+let s:l = 5 - ((3 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
